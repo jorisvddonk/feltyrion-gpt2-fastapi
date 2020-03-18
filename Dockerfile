@@ -6,12 +6,9 @@ WORKDIR /
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends curl
 
 RUN mkdir /app
+RUN mkdir /model
 
-COPY model.tar /app/
 WORKDIR /app
-RUN tar xvf *.tar
-RUN rm *.tar
-
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
